@@ -228,11 +228,17 @@ body {
 
 .recipe-footer {
   text-align: center;
-  font-size: var(--text-sm);
-  padding: var(--space-md);
   color: var(--color-muted);
+  font-size: 18px;
+  font-weight: normal;
+  max-width: 100%;
 }
 
+.recipe-tags {
+  text-align: center;
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+}
 
 /*  RESPONSIVE REORGANIZATION */
 
