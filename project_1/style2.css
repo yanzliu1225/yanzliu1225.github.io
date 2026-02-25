@@ -1,0 +1,248 @@
+/*    GOOGLE FONTS  */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;600&display=swap');
+
+:root {
+  --meta-bg: #f3e4e8;      
+  --meta-icon: #9e2f4f;  
+  --meta-text: #4b2328;      
+  --meta-value: #3a1a1f;    
+
+  /* Typography */
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Montserrat', sans-serif;
+
+  --text-xl: clamp(2rem, 4vw, 3rem);
+  --text-lg: 1.5rem;
+  --text-md: 1rem;
+  --text-sm: 0.875rem;
+
+  --line-height-body: 1.65;
+
+  /* Color Palette */
+  --color-bg: #f4efec;
+  --color-surface: #ffffff;
+  --color-primary: #5a2e2e;
+  --color-accent: #b76e79;
+  --color-muted: #6d5f5f;
+  --color-border: #e7ddd8;
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 3rem;
+  --space-xl: 4rem;
+
+  --radius-lg: 20px;
+  --radius-md: 12px;
+}
+
+
+/*  GLOBAL RESET  */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-muted);
+  line-height: var(--line-height-body);
+}
+
+
+/* GRID */
+
+.recipe-container {
+  max-width: 1200px;
+  margin: var(--space-lg) auto;
+  padding: var(--space-md);
+
+  display: grid;
+  grid-template-areas:
+    "header"
+    "meta"
+    "description"
+    "main"
+    "footer";
+
+  gap: var(--space-lg);
+}
+
+
+/* Grid Areas */
+.recipe-header { grid-area: header; }
+.recipe-meta { grid-area: meta; }
+.recipe-description { grid-area: description; }
+.recipe-main { grid-area: main; }
+.recipe-footer { grid-area: footer; }
+
+
+/* HERO SECTION */
+
+.recipe-header {
+  position: relative;
+  border-radius: 28px; 
+  overflow: hidden; 
+}
+
+.recipe-image {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  height: auto;
+  display: block;
+}
+
+.recipe-title {
+  position: absolute;
+  bottom: 1rem;
+  left: 3rem;
+  z-index: 2;
+
+  font-family: 'Montserrat', sans-serif; 
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -1px;
+
+
+  color: white;
+  max-width: 70%;
+}
+
+/*  META Info  */
+
+.recipe-meta {
+  background: #ffffff;
+  padding: 3.5rem;
+  border-radius: 32px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+
+  box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+}
+
+.meta-card {
+  background: var(--meta-bg);
+  border-radius: 20px;
+  padding: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.75rem;
+
+  transition: transform 0.2s ease;
+}
+
+.meta-icon {
+  font-size: 1.5rem;
+}
+
+.meta-label {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.meta-value {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/* Description */
+
+.recipe-description {
+  font-size: 18px;
+  font-weight: normal;
+  max-width: 100%;
+}
+
+
+/*  LAYOUT  */
+
+.recipe-main {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--space-xl);
+}
+
+
+/*   INGREDIENTS  */
+
+.ingredients-section h2,
+.instructions-section h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  color: var(--color-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.ingredients-list {
+  list-style: none;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.ingredients-list li {
+  background: var(--color-surface);
+  padding: var(--space-sm);
+  border-radius: var(--radius-md);
+  border-left: 5px solid var(--color-accent);
+}
+
+
+/*  INSTRUCTIONS */
+
+.instructions-list {
+  padding-left: var(--space-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.instruction-step {
+  background: var(--color-surface);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+}
+
+.instruction-step strong {
+  display: block;
+  color: var(--color-primary);
+  margin-bottom: var(--space-xs);
+}
+
+
+/*  FOOTER */
+
+.recipe-footer {
+  text-align: center;
+  font-size: var(--text-sm);
+  padding: var(--space-md);
+  color: var(--color-muted);
+}
+
+
+/*  RESPONSIVE REORGANIZATION */
+
+@media (max-width: 900px) {
+
+  .recipe-main {
+    grid-template-columns: 1fr;
+  }
+
+  .recipe-title {
+    max-width: 90%;
+  }
+}
